@@ -1,0 +1,167 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Expense Tracker</title>
+  <style>
+    body{
+      background-color: antiquewhite;
+    }
+  </style>
+</head>
+<body>
+
+<h2 style="border: solid;" align="center">Expense Tracker</h2>
+
+<label style="color: blueviolet;"><b>Current Amount :</b></label>
+<input type="number" id="amount">
+<br><br>
+
+<label style="color: red;"><b>Deposit :</b></label>
+<input type="number" id="deposit">
+<br><br>
+
+<label style="color: greenyellow;"><b>Withdraw :</b></label>
+<input type="number" id="withdraw">
+<br><br>
+<button onclick="trackamount()" style="font-size: larger" >Submit</button>
+
+<script>
+  class ExpenseTracker {
+    constructor(amount = 0) {
+      this.amount = amount
+    }
+
+    getAmount() {
+      return this.amount
+    }
+
+    deposit(value) {
+      if (value <= 0) {
+        alert("Deposit amount must be positive")
+        return
+    
+      this.amount += value}
+      }
+    withdraw(value) {
+      if (value <= 0) {
+        alert("Withdraw amount must be positive")
+        return
+      }
+
+      if (value <= this.amount) {
+        this.amount -= value
+      } 
+      else {
+        alert("Insufficient balance")
+      }
+    }
+  }
+  const tracker = new ExpenseTracker(0)
+
+  function trackamount() {
+    const depositValue = Number(document.getElementById("deposit").value)
+    const withdrawValue = Number(document.getElementById("withdraw").value)
+
+    if (depositValue > 0) {
+      tracker.deposit(depositValue)
+    }
+
+    if (withdrawValue > 0) {
+      tracker.withdraw(withdrawValue)
+    }
+
+    document.getElementById("amount").value = tracker.getAmount()
+    document.getElementById("deposit").value = ""
+    document.getElementById("withdraw").value = ""
+  }
+
+</script>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Expense Tracker</title>
+  <style>
+    body{
+      background-color: antiquewhite;
+    }
+  </style>
+</head>
+<body>
+
+<h2 style="border: solid;" align="center">Expense Tracker</h2>
+
+<label style="color: blueviolet;"><b>Current Amount :</b></label>
+<input type="number" id="amount" readonly>
+<br><br>
+
+<label style="color: red;"><b>Deposit :</b></label>
+<input type="number" id="deposit">
+<br><br>
+
+<label style="color: greenyellow;"><b>Withdraw :</b></label>
+<input type="number" id="withdraw">
+<br><br>
+
+<button onclick="trackamount()" style="font-size: larger">Submit</button>
+
+<script>
+  class ExpenseTracker {
+    constructor(amount = 0) {
+      this.amount = amount;
+    }
+
+    getAmount() {
+      return this.amount;
+    }
+
+    deposit(value) {
+      if (value <= 0) {
+        alert("Deposit amount must be positive");
+        return;
+      }
+      this.amount += value;
+    }
+
+    withdraw(value) {
+      if (value <= 0) {
+        alert("Withdraw amount must be positive");
+        return;
+      }
+
+      if (value <= this.amount) {
+        this.amount -= value;
+      } else {
+        alert("Insufficient balance");
+      }
+    }
+  }
+
+  const tracker = new ExpenseTracker(0);
+
+  function trackamount() {
+    const depositValue = Number(document.getElementById("deposit").value);
+    const withdrawValue = Number(document.getElementById("withdraw").value);
+
+    if (depositValue > 0) {
+      tracker.deposit(depositValue);
+    }
+
+    if (withdrawValue > 0) {
+      tracker.withdraw(withdrawValue);
+    }
+
+    document.getElementById("amount").value = tracker.getAmount();
+    document.getElementById("deposit").value = "";
+    document.getElementById("withdraw").value = "";
+  }
+</script>
+
+</body>
+</html>
